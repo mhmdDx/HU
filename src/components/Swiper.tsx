@@ -35,7 +35,7 @@ const Swiper = () => {
       id: 4,
       title: "Fresh Ingredients",
       description: "We source only the finest, freshest ingredients to create exceptional flavors in every cup",
-      videoUrl: "https://videos.pexels.com/video-files/3298636/3298636-uhd_2560_1440_25fps.mp4",
+      videoUrl: "/cups.mp4",
       bgColor: "from-blue-100 to-indigo-100",
     },
   ]
@@ -268,3 +268,4 @@ const Swiper = () => {
 }
 
 export default Swiper
+
