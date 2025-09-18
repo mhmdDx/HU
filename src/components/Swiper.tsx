@@ -35,7 +35,7 @@ const Swiper = () => {
       id: 4,
       title: "Fresh Ingredients",
       description: "We source only the finest, freshest ingredients to create exceptional flavors in every cup",
-      videoUrl: "/cups.mp4",
+      videoUrl: "https://videos.pexels.com/video-files/3298636/3298636-uhd_2560_1440_25fps.mp4",
       bgColor: "from-blue-100 to-indigo-100",
     },
   ]
@@ -87,11 +87,11 @@ const Swiper = () => {
   }
 
   return (
-    <section className="relative min-h-screen bg-gradient-to-br from-slate-50 to-gray-100 py-16 px-4 overflow-hidden">
+    <section className="relative min-h-screen bg-gradient-to-br from-[#34d399] to-[#005152] py-16 px-4 overflow-hidden">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-16 hidden md:block"
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -138,7 +138,7 @@ const Swiper = () => {
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center h-full px-8 md:px-16">
                 {/* Content */}
                 <motion.div
-                  className="text-center lg:text-left"
+                  className="text-center lg:text-left hidden md:block"
                   initial={{ opacity: 0, x: -50 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.2, duration: 0.6 }}
