@@ -17,21 +17,24 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen)
-    document.body.style.overflow = !isMenuOpen ? "hidden" : ""
+  const scrollToSection = (sectionId) => {
+    const element = document.querySelector(sectionId)
+    if (element) {
+      const offset = element.getBoundingClientRect().top + window.scrollY - 80
+      window.scrollTo({
+        top: offset,
+        behavior: "smooth",
+      })
+    }
+    setIsMenuOpen(false)
+    document.body.style.overflow = ""
   }
 
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
+  const toggleMenu = () => {
+    setIsMenuOpen((prev) => {
+      document.body.style.overflow = prev ? "" : "hidden"
+      return !prev
     })
-
-    if (isMenuOpen) {
-      setIsMenuOpen(false)
-      document.body.style.overflow = ""
-    }
   }
 
   const menuVariants = {
@@ -72,25 +75,32 @@ const Navbar = () => {
     },
   }
 
+  const navItems = [
+    { href: "#home", label: "Home" },
+    { href: "#about", label: "About" },
+    { href: "#menu", label: "Menu" },
+    { href: "#contact", label: "Contact" },
+  ]
+
   return (
     <motion.header
       className={cn(
         "fixed top-0 left-0 right-0 z-50 py-2 sm:py-3 md:py-4 transition-all duration-300",
-        isScrolled ? "bg-[#005152]" : "bg-[#005152]",
+        isScrolled ? "bg-[#005152] shadow-lg" : "bg-[#005152]"
       )}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
     >
-      <div className="container flex items-center justify-between px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-8">
         <motion.a
-          href="#"
+          href="#home"
           className="flex items-center space-x-2"
           onClick={(e) => {
             e.preventDefault()
-            scrollToTop()
+            scrollToSection("#home")
           }}
-          aria-label="Hush Coffee"
+          aria-label="Hush Coffee Home"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
@@ -101,24 +111,15 @@ const Navbar = () => {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex space-x-8">
-          {[
-            { href: "#", label: "Home", onClick: scrollToTop },
-            { href: "#about", label: "About" },
-            { href: "#menu", label: "Menu" },
-            { href: "#contact", label: "Contact" },
-          ].map((item, index) => (
+          {navItems.map((item, index) => (
             <motion.a
               key={item.label}
               href={item.href}
-              className="nav-link text-white hover:text-[#d59d18] transition-colors duration-200"
-              onClick={
-                item.onClick
-                  ? (e) => {
-                      e.preventDefault()
-                      item.onClick()
-                    }
-                  : undefined
-              }
+              className="text-white hover:text-[#d59d18] text-base font-medium transition-colors duration-200"
+              onClick={(e) => {
+                e.preventDefault()
+                scrollToSection(item.href)
+              }}
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 * index }}
@@ -131,7 +132,7 @@ const Navbar = () => {
 
         {/* Mobile Menu Button */}
         <motion.button
-          className="md:hidden text-white p-3 focus:outline-none hover:bg-[#005152]/80 rounded-lg"
+          className="md:hidden text-white p-2 focus:outline-none hover:bg-[#005152]/80 rounded-lg"
           onClick={toggleMenu}
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           whileHover={{ scale: 1.1 }}
@@ -167,68 +168,48 @@ const Navbar = () => {
         {isMenuOpen && (
           <>
             <motion.div
-              className="fixed top-0 left-0 h-full w-72 z-40 bg-gradient-to-br from-[#005152] to-[#FFF] flex flex-col pt-16 px-6 shadow-lg md:hidden"
+              className="fixed top-0 left-0 h-full w-64 bg-[#005152] flex flex-col pt-16 px-6 shadow-lg md:hidden z-40"
               variants={menuVariants}
               initial="closed"
               animate="open"
               exit="closed"
             >
+              {/* Sidebar Logo */}
+              <motion.a
+                href="#home"
+                className="mb-8"
+                onClick={(e) => {
+                  e.preventDefault()
+                  scrollToSection("#home")
+                }}
+                aria-label="Hush Coffee Home"
+                variants={menuItemVariants}
+                initial="closed"
+                animate="open"
+              >
+                <div className="text-2xl font-bold text-center" style={{ color: "#d59d18" }}>
+                  HUSH
+                </div>
+              </motion.a>
+
               <motion.nav
-                className="flex flex-col space-y-6 mt-8"
+                className="flex flex-col space-y-4"
                 variants={containerVariants}
                 initial="closed"
                 animate="open"
                 exit="closed"
               >
-                {[
-                  {
-                    href: "#",
-                    label: "Home",
-                    onClick: () => {
-                      scrollToTop()
-                      setIsMenuOpen(false)
-                      document.body.style.overflow = ""
-                    },
-                  },
-                  {
-                    href: "#about",
-                    label: "About",
-                    onClick: () => {
-                      setIsMenuOpen(false)
-                      document.body.style.overflow = ""
-                    },
-                  },
-                  {
-                    href: "#menu",
-                    label: "Menu",
-                    onClick: () => {
-                      setIsMenuOpen(false)
-                      document.body.style.overflow = ""
-                    },
-                  },
-                  {
-                    href: "#contact",
-                    label: "Contact",
-                    onClick: () => {
-                      setIsMenuOpen(false)
-                      document.body.style.overflow = ""
-                    },
-                  },
-                ].map((item) => (
+                {navItems.map((item) => (
                   <motion.a
                     key={item.label}
                     href={item.href}
-                    className="text-xl font-medium text-white py-3 px-6 rounded-lg hover:bg-[#005152]/50 transition-colors duration-200"
-                    onClick={
-                      item.onClick
-                        ? (e) => {
-                            e.preventDefault()
-                            item.onClick()
-                          }
-                        : item.onClick
-                    }
+                    className="text-lg font-medium text-white py-2 px-4 rounded-lg hover:bg-[#d59d18]/20 transition-colors duration-200"
+                    onClick={(e) => {
+                      e.preventDefault()
+                      scrollToSection(item.href)
+                    }}
                     variants={menuItemVariants}
-                    whileHover={{ x: 10, scale: 1.05 }}
+                    whileHover={{ x: 5, scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
                     {item.label}
@@ -239,7 +220,7 @@ const Navbar = () => {
 
             {/* Overlay for Mobile */}
             <motion.div
-              className="fixed inset-0 bg-black/50 z-30 md:hidden"
+              className="fixed inset-0 bg-black/60 z-30 md:hidden"
               onClick={toggleMenu}
               aria-hidden="true"
               initial={{ opacity: 0 }}
