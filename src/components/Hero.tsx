@@ -71,7 +71,7 @@ const Hero = () => {
       {/* Background photo */}
       <div
         className="absolute inset-0 bg-[url('/Header-background.jpg')] bg-cover bg-center"
-        style={{ marginTop: "62px" }}
+        style={{ marginTop: "55px" }}
       ></div>
       {/* Gradient overlay acting as a filter */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#00515266] via-[#00515266] to-[#FFf]"></div>
