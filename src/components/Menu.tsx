@@ -133,7 +133,7 @@ const Menu = () => {
     },
     {
       id: "mojito",
-      name: "Mojito",
+      name: "Mojito & Refreshers",
       items: [
         { name: "Blueberry", price: "109", description: "توت أزرق" },
         { name: "Passion Fruit", price: "109", description: "باشون فروت" },
@@ -190,17 +190,97 @@ const Menu = () => {
     },
   ]
 
-  const activeItems = menuCategories.find(cat => cat.id === activeCategory)?.items || []
+  const headerVariants = {
+    hidden: { opacity: 0, y: -20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: [0.25, 0.46, 0.45, 0.94],
+      },
+    },
+  }
+
+  const categoryNavVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        delay: 0.2,
+        ease: "easeOut",
+      },
+    },
+  }
+
+  const gridVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.05,
+        delayChildren: 0.1,
+        ease: "easeOut",
+      },
+    },
+    exit: {
+      opacity: 0,
+      transition: {
+        staggerChildren: 0.02,
+        staggerDirection: -1,
+        ease: "easeIn",
+      },
+    },
+  }
+
+  const cardVariants = {
+    hidden: {
+      opacity: 0,
+      y: 30,
+      scale: 0.9,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        duration: 0.4,
+        ease: [0.25, 0.46, 0.45, 0.94],
+      },
+    },
+    exit: {
+      opacity: 0,
+      y: -20,
+      scale: 0.95,
+      transition: {
+        duration: 0.3,
+        ease: "easeIn",
+      },
+    },
+    hover: {
+      y: -8,
+      scale: 1.02,
+      transition: {
+        duration: 0.2,
+        ease: "easeOut",
+      },
+    },
+  }
+
+  const activeItems = menuCategories.find((cat) => cat.id === activeCategory)?.items || []
 
   return (
-    <section className="min-h-screen bg-gradient-to-br from-green-50 via-emerald-50 to-green-100 py-16 px-4">
+    <section className="min-h-screen bg-gradient-to-br from-green-50 via-emerald-50 to-green-100 py-16 px-4 overflow-hidden">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <motion.div 
+        <motion.div
           className="text-center mb-16"
-          initial={{ opacity: 0, y: -30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          variants={headerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
         >
           <div className="inline-block bg-green-100 text-teal-800 px-4 py-2 rounded-full text-sm font-medium mb-4 border border-green-200">
             Our Menu
@@ -214,25 +294,40 @@ const Menu = () => {
         </motion.div>
 
         {/* Category Navigation */}
-        <motion.div 
+        <motion.div
           className="mb-12"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          variants={categoryNavVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
         >
           <div className="flex flex-wrap justify-center gap-2 mb-8">
             {menuCategories.map((category) => (
-              <button
+              <motion.button
                 key={category.id}
                 onClick={() => setActiveCategory(category.id)}
                 className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
                   activeCategory === category.id
-                    ? 'bg-teal-700 text-white shadow-lg transform scale-105'
-                    : 'bg-white text-teal-800 hover:bg-green-100 border border-green-200 hover:border-emerald-300'
+                    ? "bg-teal-700 text-white shadow-lg"
+                    : "bg-white text-teal-800 hover:bg-green-100 border border-green-200 hover:border-emerald-300"
                 }`}
+                whileHover={{
+                  scale: 1.05,
+                  y: -2,
+                  transition: { duration: 0.2 },
+                }}
+                whileTap={{ scale: 0.95 }}
+                animate={
+                  activeCategory === category.id
+                    ? {
+                        scale: 1.05,
+                        transition: { duration: 0.2 },
+                      }
+                    : { scale: 1 }
+                }
               >
                 {category.name}
-              </button>
+              </motion.button>
             ))}
           </div>
         </motion.div>
@@ -242,23 +337,18 @@ const Menu = () => {
           <motion.div
             key={activeCategory}
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.4 }}
+            variants={gridVariants}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
           >
             {activeItems.map((item, index) => (
               <motion.div
                 key={`${activeCategory}-${index}`}
-                className="group bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 border border-green-100 hover:border-emerald-200"
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: index * 0.05 }}
-                whileHover={{ 
-                  y: -8, 
-                  scale: 1.02,
-                  transition: { duration: 0.2 }
-                }}
+                className="group bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl transition-shadow duration-300 border border-green-100 hover:border-emerald-200"
+                variants={cardVariants}
+                whileHover="hover"
+                layout
               >
                 {/* Price Badge */}
                 <div className="flex justify-between items-start mb-4">
@@ -267,27 +357,72 @@ const Menu = () => {
                       {item.name}
                     </h3>
                   </div>
-                  <div className="bg-gradient-to-r from-teal-600 to-teal-700 text-white px-3 py-1 rounded-full text-sm font-bold shadow-md ml-3 flex-shrink-0">
+                  <motion.div
+                    className="bg-gradient-to-r from-teal-600 to-teal-700 text-white px-3 py-1 rounded-full text-sm font-bold shadow-md ml-3 flex-shrink-0"
+                    whileHover={{
+                      scale: 1.05,
+                      boxShadow: "0 4px 20px rgba(0,0,0,0.15)",
+                    }}
+                  >
                     {item.price} EGP
-                  </div>
+                  </motion.div>
                 </div>
 
                 {/* Description */}
-                <p className="text-teal-600 text-sm leading-relaxed font-medium">
-                  {item.description}
-                </p>
+                <p className="text-teal-600 text-sm leading-relaxed font-medium">{item.description}</p>
 
                 {/* Hover Effect Accent */}
-                <div className="w-0 group-hover:w-full h-0.5 bg-gradient-to-r from-emerald-500 to-teal-600 transition-all duration-300 mt-4"></div>
+                <motion.div
+                  className="h-0.5 bg-gradient-to-r from-emerald-500 to-teal-600 mt-4"
+                  initial={{ width: 0 }}
+                  whileHover={{
+                    width: "100%",
+                    transition: { duration: 0.3, ease: "easeOut" },
+                  }}
+                />
               </motion.div>
             ))}
           </motion.div>
         </AnimatePresence>
 
-        {/* Decorative Elements */}
-        <div className="absolute top-10 left-10 w-20 h-20 bg-emerald-200 rounded-full opacity-20 animate-pulse"></div>
-        <div className="absolute bottom-10 right-10 w-32 h-32 bg-green-200 rounded-full opacity-20 animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-4 w-16 h-16 bg-emerald-300 rounded-full opacity-10 animate-bounce"></div>
+        <motion.div
+          className="absolute top-10 left-10 w-20 h-20 bg-emerald-200 rounded-full opacity-20"
+          animate={{
+            scale: [1, 1.2, 1],
+            opacity: [0.2, 0.3, 0.2],
+          }}
+          transition={{
+            duration: 4,
+            repeat: Number.POSITIVE_INFINITY,
+            ease: "easeInOut",
+          }}
+        />
+        <motion.div
+          className="absolute bottom-10 right-10 w-32 h-32 bg-green-200 rounded-full opacity-20"
+          animate={{
+            scale: [1, 1.1, 1],
+            opacity: [0.2, 0.25, 0.2],
+          }}
+          transition={{
+            duration: 5,
+            repeat: Number.POSITIVE_INFINITY,
+            ease: "easeInOut",
+            delay: 1,
+          }}
+        />
+        <motion.div
+          className="absolute top-1/2 left-4 w-16 h-16 bg-emerald-300 rounded-full opacity-10"
+          animate={{
+            y: [-10, 10, -10],
+            x: [-5, 5, -5],
+          }}
+          transition={{
+            duration: 3,
+            repeat: Number.POSITIVE_INFINITY,
+            ease: "easeInOut",
+            delay: 0.5,
+          }}
+        />
       </div>
     </section>
   )
