@@ -11,97 +11,97 @@ const Menu = () => {
       id: "coffee",
       name: "Turkish Coffee",
       items: [
-        { name: "FRENCH Coffee", price: "69", description: "قهوه فرنساوي" },
-        { name: "NUTELLA Coffee", price: "86", description: "قهوه نوتيلا" },
-        { name: "TURKISH Coffee S", price: "52", description: "قهوه تركي سنجل" },
-        { name: "TURKISH Coffee D", price: "63", description: "قهوه تركي دابل" },
+        { name: "FRENCH Coffee", price: "69", description: "قهوه فرنساوي", image: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=300&h=200&fit=crop&crop=center" },
+        { name: "NUTELLA Coffee", price: "86", description: "قهوه نوتيلا", image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop&crop=center" },
+        { name: "TURKISH Coffee S", price: "52", description: "قهوه تركي سنجل", image: "https://images.unsplash.com/photo-1610889556528-9a770e32642f?w=300&h=200&fit=crop&crop=center" },
+        { name: "TURKISH Coffee D", price: "63", description: "قهوه تركي دابل", image: "https://images.unsplash.com/photo-1610889556528-9a770e32642f?w=300&h=200&fit=crop&crop=center" },
       ],
     },
     {
       id: "espresso",
       name: "Espresso",
       items: [
-        { name: "Espresso", price: "52 / 63", description: "إسبريسو" },
-        { name: "Macchiato", price: "57 / 69", description: "ماكياتو" },
-        { name: "Cappuccino", price: "92", description: "كابتشينو" },
-        { name: "Café Latte", price: "97", description: "كافيه لاتيه" },
-        { name: "Café Latte Flavour", price: "109", description: "كافيه لاتيه بنكهة" },
-        { name: "Salted Caramel Latte", price: "109", description: "سولتد كراميل لاتيه" },
-        { name: "Flat White", price: "103", description: "فلات وايت" },
-        { name: "Cookies Latte", price: "109", description: "لاتيه بالكوكيز" },
-        { name: "Pistachio Latte", price: "137", description: "لاتيه بالفستق" },
-        { name: "Cinnamon Roll Latte", price: "109", description: "قرفة لاتيه رول" },
-        { name: "Corto Classic", price: "86", description: "كورتو كلاسيك" },
-        { name: "Corto Flavour", price: "97", description: "كورتو بنكهة" },
-        { name: "Spanish Latte", price: "109", description: "سبانش لاتيه" },
-        { name: "Caramel Spanish Latte", price: "120", description: "كراميل سبانش لاتيه" },
-        { name: "Spanish Latte Pistachio", price: "143", description: "سبانش لاتيه بالفستق" },
-        { name: "Hazelnut Spanish Latte", price: "120", description: "سبانش لاتيه بالبندق" },
-        { name: "Dark Mocha", price: "103", description: "دارك موكا" },
-        { name: "White Mocha", price: "109", description: "وايت موكا" },
-        { name: "Caramel Macchiato", price: "109", description: "كراميل ماكياتو" },
-        { name: "Americano", price: "86", description: "أمريكانو" },
+        { name: "Espresso", price: "52 / 63", description: "إسبريسو", image: "https://images.unsplash.com/photo-1510707577719-ae7c14805e76?w=300&h=200&fit=crop&crop=center" },
+        { name: "Macchiato", price: "57 / 69", description: "ماكياتو", image: "https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=300&h=200&fit=crop&crop=center" },
+        { name: "Cappuccino", price: "92", description: "كابتشينو", image: "https://images.unsplash.com/photo-1534778101976-62847782c213?w=300&h=200&fit=crop&crop=center" },
+        { name: "Café Latte", price: "97", description: "كافيه لاتيه", image: "https://images.unsplash.com/photo-1570968915860-54d5c301fa9f?w=300&h=200&fit=crop&crop=center" },
+        { name: "Café Latte Flavour", price: "109", description: "كافيه لاتيه بنكهة", image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop&crop=center" },
+        { name: "Salted Caramel Latte", price: "109", description: "سولتد كراميل لاتيه", image: "https://images.unsplash.com/photo-1541167760496-1628856ab772?w=300&h=200&fit=crop&crop=center" },
+        { name: "Flat White", price: "103", description: "فلات وايت", image: "https://images.unsplash.com/photo-1497636577773-f1231844b336?w=300&h=200&fit=crop&crop=center" },
+        { name: "Cookies Latte", price: "109", description: "لاتيه بالكوكيز", image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop&crop=center" },
+        { name: "Pistachio Latte", price: "137", description: "لاتيه بالفستق", image: "https://images.unsplash.com/photo-1570968915860-54d5c301fa9f?w=300&h=200&fit=crop&crop=center" },
+        { name: "Cinnamon Roll Latte", price: "109", description: "قرفة لاتيه رول", image: "https://images.unsplash.com/photo-1541167760496-1628856ab772?w=300&h=200&fit=crop&crop=center" },
+        { name: "Corto Classic", price: "86", description: "كورتو كلاسيك", image: "https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=300&h=200&fit=crop&crop=center" },
+        { name: "Corto Flavour", price: "97", description: "كورتو بنكهة", image: "https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=300&h=200&fit=crop&crop=center" },
+        { name: "Spanish Latte", price: "109", description: "سبانش لاتيه", image: "https://images.unsplash.com/photo-1570968915860-54d5c301fa9f?w=300&h=200&fit=crop&crop=center" },
+        { name: "Caramel Spanish Latte", price: "120", description: "كراميل سبانش لاتيه", image: "https://images.unsplash.com/photo-1541167760496-1628856ab772?w=300&h=200&fit=crop&crop=center" },
+        { name: "Spanish Latte Pistachio", price: "143", description: "سبانش لاتيه بالفستق", image: "https://images.unsplash.com/photo-1570968915860-54d5c301fa9f?w=300&h=200&fit=crop&crop=center" },
+        { name: "Hazelnut Spanish Latte", price: "120", description: "سبانش لاتيه بالبندق", image: "https://images.unsplash.com/photo-1570968915860-54d5c301fa9f?w=300&h=200&fit=crop&crop=center" },
+        { name: "Dark Mocha", price: "103", description: "دارك موكا", image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop&crop=center" },
+        { name: "White Mocha", price: "109", description: "وايت موكا", image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop&crop=center" },
+        { name: "Caramel Macchiato", price: "109", description: "كراميل ماكياتو", image: "https://images.unsplash.com/photo-1541167760496-1628856ab772?w=300&h=200&fit=crop&crop=center" },
+        { name: "Americano", price: "86", description: "أمريكانو", image: "https://images.unsplash.com/photo-1497636577773-f1231844b336?w=300&h=200&fit=crop&crop=center" },
       ],
     },
     {
       id: "iced",
       name: "Iced Coffee",
       items: [
-        { name: "Ice Latte", price: "97", description: "آيس لاتيه" },
-        { name: "Ice Flat White", price: "103", description: "آيس فلات وايت" },
-        { name: "Ice Mocha", price: "103", description: "آيس موكا" },
-        { name: "Ice Vanilla Latte", price: "109", description: "آيس فانيلا لاتيه" },
-        { name: "Ice Caramel Latte", price: "109", description: "آيس كراميل لاتيه" },
-        { name: "Ice Latte Cookies", price: "109", description: "آيس لاتيه بالكوكيز" },
-        { name: "Ice Latte Pistachio", price: "137", description: "آيس لاتيه بالفستق" },
-        { name: "Ice Cinnamon Roll Latte", price: "109", description: "آيس لاتيه قرفة رول" },
-        { name: "Ice Salted Caramel", price: "109", description: "آيس سولتد كراميل" },
-        { name: "Ice Caramel Macchiato", price: "109", description: "آيس كراميل ماكياتو" },
-        { name: "Ice White Mocha", price: "109", description: "آيس وايت موكا" },
-        { name: "Ice Spanish Latte", price: "109", description: "آيس سبانش لاتيه" },
-        { name: "Ice Spanish Pistachio", price: "143", description: "آيس سبانش فستق" },
-        { name: "Ice Spanish Caramel", price: "126", description: "آيس سبانش كراميل" },
-        { name: "Ice Spanish Hazelnut", price: "126", description: "آيس سبانش بندق" },
+        { name: "Ice Latte", price: "97", description: "آيس لاتيه", image: "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=300&h=200&fit=crop&crop=center" },
+        { name: "Ice Flat White", price: "103", description: "آيس فلات وايت", image: "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=300&h=200&fit=crop&crop=center" },
+        { name: "Ice Mocha", price: "103", description: "آيس موكا", image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop&crop=center" },
+        { name: "Ice Vanilla Latte", price: "109", description: "آيس فانيلا لاتيه", image: "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=300&h=200&fit=crop&crop=center" },
+        { name: "Ice Caramel Latte", price: "109", description: "آيس كراميل لاتيه", image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop&crop=center" },
+        { name: "Ice Latte Cookies", price: "109", description: "آيس لاتيه بالكوكيز", image: "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=300&h=200&fit=crop&crop=center" },
+        { name: "Ice Latte Pistachio", price: "137", description: "آيس لاتيه بالفستق", image: "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=300&h=200&fit=crop&crop=center" },
+        { name: "Ice Cinnamon Roll Latte", price: "109", description: "آيس لاتيه قرفة رول", image: "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=300&h=200&fit=crop&crop=center" },
+        { name: "Ice Salted Caramel", price: "109", description: "آيس سولتد كراميل", image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop&crop=center" },
+        { name: "Ice Caramel Macchiato", price: "109", description: "آيس كراميل ماكياتو", image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop&crop=center" },
+        { name: "Ice White Mocha", price: "109", description: "آيس وايت موكا", image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop&crop=center" },
+        { name: "Ice Spanish Latte", price: "109", description: "آيس سبانش لاتيه", image: "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=300&h=200&fit=crop&crop=center" },
+        { name: "Ice Spanish Pistachio", price: "143", description: "آيس سبانش فستق", image: "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=300&h=200&fit=crop&crop=center" },
+        { name: "Ice Spanish Caramel", price: "126", description: "آيس سبانش كراميل", image: "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=300&h=200&fit=crop&crop=center" },
+        { name: "Ice Spanish Hazelnut", price: "126", description: "آيس سبانش بندق", image: "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=300&h=200&fit=crop&crop=center" },
       ],
     },
     {
       id: "frappe",
       name: "Frappé",
       items: [
-        { name: "COFFEE Frappé", price: "109", description: "قهوه فرابيه" },
-        { name: "Caramel Frappé", price: "109", description: "كراميل فرابيه" },
-        { name: "Mocha Frappé", price: "109", description: "موكا فرابيه" },
-        { name: "Cookies Frappé", price: "126", description: "كوكيز فرابيه" },
-        { name: "White Mocha Frappé", price: "120", description: "وايت موكا فرابيه" },
-        { name: "Salted Caramel Frappé", price: "126", description: "سولتد كراميل فرابيه" },
-        { name: "Pistachio Frappé", price: "150", description: "فرابيه فستق" },
+        { name: "COFFEE Frappé", price: "109", description: "قهوه فرابيه", image: "https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=300&h=200&fit=crop&crop=center" },
+        { name: "Caramel Frappé", price: "109", description: "كراميل فرابيه", image: "https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=300&h=200&fit=crop&crop=center" },
+        { name: "Mocha Frappé", price: "109", description: "موكا فرابيه", image: "https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=300&h=200&fit=crop&crop=center" },
+        { name: "Cookies Frappé", price: "126", description: "كوكيز فرابيه", image: "https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=300&h=200&fit=crop&crop=center" },
+        { name: "White Mocha Frappé", price: "120", description: "وايت موكا فرابيه", image: "https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=300&h=200&fit=crop&crop=center" },
+        { name: "Salted Caramel Frappé", price: "126", description: "سولتد كراميل فرابيه", image: "https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=300&h=200&fit=crop&crop=center" },
+        { name: "Pistachio Frappé", price: "150", description: "فرابيه فستق", image: "https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=300&h=200&fit=crop&crop=center" },
       ],
     },
     {
       id: "matcha",
       name: "Matcha",
       items: [
-        { name: "Hot Matcha", price: "109", description: "هوت ماتشا" },
-        { name: "Ice Matcha", price: "109", description: "ايس ماتشا" },
-        { name: "Ice Matcha Mango", price: "137", description: "ايس ماتشا مانجو" },
-        { name: "Ice Matcha Strawberry", price: "137", description: "ايس ماتشا فراوله" },
-        { name: "Matcha Spanish Latte", price: "137", description: "ماتشا سبانش لاتيه" },
-        { name: "Matcha White Chocolate", price: "137", description: "ماتشا وايت شوكولاتة" },
+        { name: "Hot Matcha", price: "109", description: "هوت ماتشا", image: "https://images.unsplash.com/photo-1515823064-d6e0c04616a7?w=300&h=200&fit=crop&crop=center" },
+        { name: "Ice Matcha", price: "109", description: "ايس ماتشا", image: "https://images.unsplash.com/photo-1515823064-d6e0c04616a7?w=300&h=200&fit=crop&crop=center" },
+        { name: "Ice Matcha Mango", price: "137", description: "ايس ماتشا مانجو", image: "https://images.unsplash.com/photo-1515823064-d6e0c04616a7?w=300&h=200&fit=crop&crop=center" },
+        { name: "Ice Matcha Strawberry", price: "137", description: "ايس ماتشا فراوله", image: "https://images.unsplash.com/photo-1515823064-d6e0c04616a7?w=300&h=200&fit=crop&crop=center" },
+        { name: "Matcha Spanish Latte", price: "137", description: "ماتشا سبانش لاتيه", image: "https://images.unsplash.com/photo-1515823064-d6e0c04616a7?w=300&h=200&fit=crop&crop=center" },
+        { name: "Matcha White Chocolate", price: "137", description: "ماتشا وايت شوكولاتة", image: "https://images.unsplash.com/photo-1515823064-d6e0c04616a7?w=300&h=200&fit=crop&crop=center" },
       ],
     },
     {
       id: "noncoffee",
       name: "Non-Coffee",
       items: [
-        { name: "Tea", price: "46", description: "شاي" },
-        { name: "Tea Flavor", price: "57", description: "شاي بنكهة" },
-        { name: "Hot Chocolate Classic", price: "103", description: "هوت شوكلت" },
-        { name: "Hot Chocolate Cookies", price: "120", description: "هوت شوكلت بكوكيز" },
-        { name: "Hot Chocolate Marshmallow", price: "120", description: "هوت شوكلت بمارشميلو" },
-        { name: "Salted Caramel Hot Chocolate", price: "120", description: "هوت شوكلت كراميل سولتد" },
-        { name: "Hot Chocolate Nuts", price: "120", description: "هوت شوكلت بمكسرات" },
-        { name: "Ice Tea", price: "92", description: "شاي ايس" },
-        { name: "Ice Chocolate", price: "103", description: "ايس شوكلت" },
+        { name: "Tea", price: "46", description: "شاي", image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=300&h=200&fit=crop&crop=center" },
+        { name: "Tea Flavor", price: "57", description: "شاي بنكهة", image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=300&h=200&fit=crop&crop=center" },
+        { name: "Hot Chocolate Classic", price: "103", description: "هوت شوكلت", image: "https://images.unsplash.com/photo-1542990253-0b8be20ca69?w=300&h=200&fit=crop&crop=center" },
+        { name: "Hot Chocolate Cookies", price: "120", description: "هوت شوكلت بكوكيز", image: "https://images.unsplash.com/photo-1542990253-0b8be20ca69?w=300&h=200&fit=crop&crop=center" },
+        { name: "Hot Chocolate Marshmallow", price: "120", description: "هوت شوكلت بمارشميلو", image: "https://images.unsplash.com/photo-1542990253-0b8be20ca69?w=300&h=200&fit=crop&crop=center" },
+        { name: "Salted Caramel Hot Chocolate", price: "120", description: "هوت شوكلت كراميل سولتد", image: "https://images.unsplash.com/photo-1542990253-0b8be20ca69?w=300&h=200&fit=crop&crop=center" },
+        { name: "Hot Chocolate Nuts", price: "120", description: "هوت شوكلت بمكسرات", image: "https://images.unsplash.com/photo-1542990253-0b8be20ca69?w=300&h=200&fit=crop&crop=center" },
+        { name: "Ice Tea", price: "92", description: "شاي ايس", image: "https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=300&h=200&fit=crop&crop=center" },
+        { name: "Ice Chocolate", price: "103", description: "ايس شوكلت", image: "https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=300&h=200&fit=crop&crop=center" },
       ],
     },
     {
@@ -133,7 +133,7 @@ const Menu = () => {
     },
     {
       id: "mojito",
-      name: "Mojito & Refreshers",
+      name: "Mojito",
       items: [
         { name: "Blueberry", price: "109", description: "توت أزرق" },
         { name: "Passion Fruit", price: "109", description: "باشون فروت" },
@@ -190,97 +190,17 @@ const Menu = () => {
     },
   ]
 
-  const headerVariants = {
-    hidden: { opacity: 0, y: -20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: [0.25, 0.46, 0.45, 0.94],
-      },
-    },
-  }
-
-  const categoryNavVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.5,
-        delay: 0.2,
-        ease: "easeOut",
-      },
-    },
-  }
-
-  const gridVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.05,
-        delayChildren: 0.1,
-        ease: "easeOut",
-      },
-    },
-    exit: {
-      opacity: 0,
-      transition: {
-        staggerChildren: 0.02,
-        staggerDirection: -1,
-        ease: "easeIn",
-      },
-    },
-  }
-
-  const cardVariants = {
-    hidden: {
-      opacity: 0,
-      y: 30,
-      scale: 0.9,
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: {
-        duration: 0.4,
-        ease: [0.25, 0.46, 0.45, 0.94],
-      },
-    },
-    exit: {
-      opacity: 0,
-      y: -20,
-      scale: 0.95,
-      transition: {
-        duration: 0.3,
-        ease: "easeIn",
-      },
-    },
-    hover: {
-      y: -8,
-      scale: 1.02,
-      transition: {
-        duration: 0.2,
-        ease: "easeOut",
-      },
-    },
-  }
-
-  const activeItems = menuCategories.find((cat) => cat.id === activeCategory)?.items || []
+  const activeItems = menuCategories.find(cat => cat.id === activeCategory)?.items || []
 
   return (
-    <section className="min-h-screen bg-gradient-to-br from-green-50 via-emerald-50 to-green-100 py-16 px-4 overflow-hidden">
+    <section className="min-h-screen bg-gradient-to-br from-green-50 via-emerald-50 to-green-100 py-16 px-4">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <motion.div
+        <motion.div 
           className="text-center mb-16"
-          variants={headerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+          initial={{ opacity: 0, y: -30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <div className="inline-block bg-green-100 text-teal-800 px-4 py-2 rounded-full text-sm font-medium mb-4 border border-green-200">
             Our Menu
@@ -294,40 +214,25 @@ const Menu = () => {
         </motion.div>
 
         {/* Category Navigation */}
-        <motion.div
+        <motion.div 
           className="mb-12"
-          variants={categoryNavVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
         >
           <div className="flex flex-wrap justify-center gap-2 mb-8">
             {menuCategories.map((category) => (
-              <motion.button
+              <button
                 key={category.id}
                 onClick={() => setActiveCategory(category.id)}
                 className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
                   activeCategory === category.id
-                    ? "bg-teal-700 text-white shadow-lg"
-                    : "bg-white text-teal-800 hover:bg-green-100 border border-green-200 hover:border-emerald-300"
+                    ? 'bg-teal-700 text-white shadow-lg transform scale-105'
+                    : 'bg-white text-teal-800 hover:bg-green-100 border border-green-200 hover:border-emerald-300'
                 }`}
-                whileHover={{
-                  scale: 1.05,
-                  y: -2,
-                  transition: { duration: 0.2 },
-                }}
-                whileTap={{ scale: 0.95 }}
-                animate={
-                  activeCategory === category.id
-                    ? {
-                        scale: 1.05,
-                        transition: { duration: 0.2 },
-                      }
-                    : { scale: 1 }
-                }
               >
                 {category.name}
-              </motion.button>
+              </button>
             ))}
           </div>
         </motion.div>
@@ -337,18 +242,23 @@ const Menu = () => {
           <motion.div
             key={activeCategory}
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
-            variants={gridVariants}
-            initial="hidden"
-            animate="visible"
-            exit="exit"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.4 }}
           >
             {activeItems.map((item, index) => (
               <motion.div
                 key={`${activeCategory}-${index}`}
-                className="group bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl transition-shadow duration-300 border border-green-100 hover:border-emerald-200"
-                variants={cardVariants}
-                whileHover="hover"
-                layout
+                className="group bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 border border-green-100 hover:border-emerald-200"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: index * 0.05 }}
+                whileHover={{ 
+                  y: -8, 
+                  scale: 1.02,
+                  transition: { duration: 0.2 }
+                }}
               >
                 {/* Price Badge */}
                 <div className="flex justify-between items-start mb-4">
@@ -357,72 +267,27 @@ const Menu = () => {
                       {item.name}
                     </h3>
                   </div>
-                  <motion.div
-                    className="bg-gradient-to-r from-teal-600 to-teal-700 text-white px-3 py-1 rounded-full text-sm font-bold shadow-md ml-3 flex-shrink-0"
-                    whileHover={{
-                      scale: 1.05,
-                      boxShadow: "0 4px 20px rgba(0,0,0,0.15)",
-                    }}
-                  >
+                  <div className="bg-gradient-to-r from-teal-600 to-teal-700 text-white px-3 py-1 rounded-full text-sm font-bold shadow-md ml-3 flex-shrink-0">
                     {item.price} EGP
-                  </motion.div>
+                  </div>
                 </div>
 
                 {/* Description */}
-                <p className="text-teal-600 text-sm leading-relaxed font-medium">{item.description}</p>
+                <p className="text-teal-600 text-sm leading-relaxed font-medium">
+                  {item.description}
+                </p>
 
                 {/* Hover Effect Accent */}
-                <motion.div
-                  className="h-0.5 bg-gradient-to-r from-emerald-500 to-teal-600 mt-4"
-                  initial={{ width: 0 }}
-                  whileHover={{
-                    width: "100%",
-                    transition: { duration: 0.3, ease: "easeOut" },
-                  }}
-                />
+                <div className="w-0 group-hover:w-full h-0.5 bg-gradient-to-r from-emerald-500 to-teal-600 transition-all duration-300 mt-4"></div>
               </motion.div>
             ))}
           </motion.div>
         </AnimatePresence>
 
-        <motion.div
-          className="absolute top-10 left-10 w-20 h-20 bg-emerald-200 rounded-full opacity-20"
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.2, 0.3, 0.2],
-          }}
-          transition={{
-            duration: 4,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "easeInOut",
-          }}
-        />
-        <motion.div
-          className="absolute bottom-10 right-10 w-32 h-32 bg-green-200 rounded-full opacity-20"
-          animate={{
-            scale: [1, 1.1, 1],
-            opacity: [0.2, 0.25, 0.2],
-          }}
-          transition={{
-            duration: 5,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "easeInOut",
-            delay: 1,
-          }}
-        />
-        <motion.div
-          className="absolute top-1/2 left-4 w-16 h-16 bg-emerald-300 rounded-full opacity-10"
-          animate={{
-            y: [-10, 10, -10],
-            x: [-5, 5, -5],
-          }}
-          transition={{
-            duration: 3,
-            repeat: Number.POSITIVE_INFINITY,
-            ease: "easeInOut",
-            delay: 0.5,
-          }}
-        />
+        {/* Decorative Elements */}
+        <div className="absolute top-10 left-10 w-20 h-20 bg-emerald-200 rounded-full opacity-20 animate-pulse"></div>
+        <div className="absolute bottom-10 right-10 w-32 h-32 bg-green-200 rounded-full opacity-20 animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-4 w-16 h-16 bg-emerald-300 rounded-full opacity-10 animate-bounce"></div>
       </div>
     </section>
   )
