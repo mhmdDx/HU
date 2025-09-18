@@ -1,3 +1,4 @@
+
 "use client"
 
 import { useState, useEffect } from "react"
@@ -47,12 +48,18 @@ const Swiper = () => {
     setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length)
   }
 
-  // Auto-play functionality
+  // Auto-play functionality with timer reset on manual interaction
   useEffect(() => {
     if (!isPlaying) return
-    const interval = setInterval(nextSlide, 12000)
+
+    const startInterval = () => {
+      return setInterval(nextSlide, 12000) // 12 seconds
+    }
+
+    const interval = startInterval()
+
     return () => clearInterval(interval)
-  }, [isPlaying])
+  }, [isPlaying, currentSlide]) // Add currentSlide as a dependency to reset timer on slide change
 
   const slideVariants = {
     enter: (direction: number) => ({
@@ -259,6 +266,5 @@ const Swiper = () => {
     </section>
   )
 }
-
 
 export default Swiper
