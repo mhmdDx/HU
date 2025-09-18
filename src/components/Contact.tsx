@@ -52,14 +52,15 @@ const Contact = () => {
   }
 
   // Define form card variants
-  const formCardVariants = {
-    hidden: { opacity: 0, x: 50 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: { duration: 0.8, ease: "easeOut" },
-    },
-  }
+ // Define form card variants without x-axis movement
+const formCardVariants = {
+  hidden: { opacity: 0, y: 20 }, // Changed from x: 50 to y: 20 for vertical animation
+  visible: {
+    opacity: 1,
+    y: 0, // Changed from x: 0 to y: 0
+    transition: { duration: 0.8, ease: "easeOut" },
+  },
+};
 
   return (
     <section id="contact" className="section-container bg-white" ref={sectionRef}>
