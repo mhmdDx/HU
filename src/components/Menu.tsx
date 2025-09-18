@@ -133,7 +133,7 @@ const Menu = () => {
     },
     {
       id: "mojito",
-      name: "Mojito & Refreshers",
+      name: "Mojito",
       items: [
         { name: "Blueberry", price: "109", description: "توت أزرق" },
         { name: "Passion Fruit", price: "109", description: "باشون فروت" },
