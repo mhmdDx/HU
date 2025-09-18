@@ -1,48 +1,15 @@
 "use client"
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { motion, useInView } from "framer-motion"
-import { useRef } from "react"
+import { useState } from "react"
+import { motion, AnimatePresence } from "framer-motion"
 
 const Menu = () => {
-  const sectionRef = useRef(null)
-  const isInView = useInView(sectionRef, { once: true, margin: "-100px" })
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2,
-      },
-    },
-  }
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6, ease: "easeOut" },
-    },
-  }
-
-  const cardVariants = {
-    hidden: { opacity: 0, y: 20, scale: 0.95 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: { duration: 0.4, ease: "easeOut" },
-    },
-  }
+  const [activeCategory, setActiveCategory] = useState("coffee")
 
   const menuCategories = [
     {
       id: "coffee",
-      name: "Coffee & Espresso",
+      name: "Turkish Coffee",
       items: [
         { name: "FRENCH Coffee", price: "69", description: "قهوه فرنساوي" },
         { name: "NUTELLA Coffee", price: "86", description: "قهوه نوتيلا" },
@@ -51,8 +18,8 @@ const Menu = () => {
       ],
     },
     {
-      id: "esspreso",
-      name: " Espresso",
+      id: "espresso",
+      name: "Espresso",
       items: [
         { name: "Espresso", price: "52 / 63", description: "إسبريسو" },
         { name: "Macchiato", price: "57 / 69", description: "ماكياتو" },
@@ -98,8 +65,8 @@ const Menu = () => {
       ],
     },
     {
-      id: "specialties",
-      name: "Frappé & Specialties",
+      id: "frappe",
+      name: "Frappé",
       items: [
         { name: "COFFEE Frappé", price: "109", description: "قهوه فرابيه" },
         { name: "Caramel Frappé", price: "109", description: "كراميل فرابيه" },
@@ -111,15 +78,27 @@ const Menu = () => {
       ],
     },
     {
+      id: "matcha",
+      name: "Matcha",
+      items: [
+        { name: "Hot Matcha", price: "109", description: "هوت ماتشا" },
+        { name: "Ice Matcha", price: "109", description: "ايس ماتشا" },
+        { name: "Ice Matcha Mango", price: "137", description: "ايس ماتشا مانجو" },
+        { name: "Ice Matcha Strawberry", price: "137", description: "ايس ماتشا فراوله" },
+        { name: "Matcha Spanish Latte", price: "137", description: "ماتشا سبانش لاتيه" },
+        { name: "Matcha White Chocolate", price: "137", description: "ماتشا وايت شوكولاتة" },
+      ],
+    },
+    {
       id: "noncoffee",
       name: "Non-Coffee",
       items: [
         { name: "Tea", price: "46", description: "شاي" },
-        { name: "Tea Flover", price: "57", description: "شاي بنكهة" },
-        { name: "Hot Chocolate classic", price: "103", description: "هوت شوكلت" },
-        { name: "Hot Chocolate cookies", price: "120", description: "هوت شوكلت بكوكيز" },
-        { name: "Hot Chocolate marshmallow", price: "120", description: "هوت شوكلت بمارشميلو" },
-        { name: "Salted caramel Hot Chocolate", price: "120", description: "هوت شوكلت كراميل سولتد" },
+        { name: "Tea Flavor", price: "57", description: "شاي بنكهة" },
+        { name: "Hot Chocolate Classic", price: "103", description: "هوت شوكلت" },
+        { name: "Hot Chocolate Cookies", price: "120", description: "هوت شوكلت بكوكيز" },
+        { name: "Hot Chocolate Marshmallow", price: "120", description: "هوت شوكلت بمارشميلو" },
+        { name: "Salted Caramel Hot Chocolate", price: "120", description: "هوت شوكلت كراميل سولتد" },
         { name: "Hot Chocolate Nuts", price: "120", description: "هوت شوكلت بمكسرات" },
         { name: "Ice Tea", price: "92", description: "شاي ايس" },
         { name: "Ice Chocolate", price: "103", description: "ايس شوكلت" },
@@ -127,7 +106,7 @@ const Menu = () => {
     },
     {
       id: "shakes",
-      name: "Milkshakes & Smoothies",
+      name: "Milkshakes",
       items: [
         { name: "Vanilla", price: "103", description: "فانيليا" },
         { name: "Chocolate / Caramel", price: "109", description: "شوكولاتة / كراميل" },
@@ -139,20 +118,8 @@ const Menu = () => {
       ],
     },
     {
-      id: "matcha",
-      name: "matcha",
-      items: [
-        { name: "Hot Matcha", price: "109", description: "هوت ماتشا" },
-        { name: "Ice Matcha", price: "109", description: "ايس ماتشا" },
-        { name: "Ice Matcha Mango", price: "137", description: "ايس ماتشا مانجو" },
-        { name: "Ice Matcha Strawberry", price: "137", description: "ايس ماتشا فراوله" },
-        { name: "Matcha Spanish Late", price: "137", description: "ماتشا سبانش لاتيه" },
-        { name: "Matcha White Chocolate", price: "137", description: "ماتشا سبانش لاتيه" },
-      ],
-    },
-    {
-      id: "SMOOTHIES",
-      name: "SMOOTHIES",
+      id: "smoothies",
+      name: "Smoothies",
       items: [
         { name: "Mango Passion Fruit", price: "120", description: "مانجو باشون فروت" },
         { name: "Mango Kiwi", price: "120", description: "مانجو كيوي" },
@@ -184,9 +151,9 @@ const Menu = () => {
         { name: "Carrot Cake", price: "112", description: "كاروت كيك" },
         { name: "Honey Cake Classic", price: "97", description: "هوني كيك كلاسيك" },
         { name: "Tiramisu Cake", price: "109", description: "تيراميسو كيك" },
-        { name: "Trafel Cake", price: "109", description: "ترافل كيك" },
-        { name: "Matelda Cake", price: "114", description: "ماتيلدا كيك" },
-        { name: "Eclair Nuttella-Kinder", price: "80", description: "إكلير نوتيلا كيندر" },
+        { name: "Trifle Cake", price: "109", description: "ترافل كيك" },
+        { name: "Matilda Cake", price: "114", description: "ماتيلدا كيك" },
+        { name: "Eclair Nutella-Kinder", price: "80", description: "إكلير نوتيلا كيندر" },
         { name: "Eclair Pistachio", price: "86", description: "إكلير بيستاشيو" },
         { name: "Chocolate Chunk Cookies", price: "69", description: "كوكيز شوكليت شانك" },
         { name: "English Cake", price: "54", description: "انجليش كيك" },
@@ -196,8 +163,8 @@ const Menu = () => {
       ],
     },
     {
-      id: "pastries",
-      name: "Croissants & Croffles",
+      id: "croissants",
+      name: "Croissants",
       items: [
         { name: "Plain", price: "75", description: "سادة" },
         { name: "Smoked Turkey", price: "149", description: "تركي مدخن" },
@@ -207,8 +174,8 @@ const Menu = () => {
       ],
     },
     {
-      id: "CROFFLE",
-      name: "CROFFLE",
+      id: "croffles",
+      name: "Croffles",
       items: [
         { name: "Ferrero Rocher", price: "143", description: "فيريرو روشيه" },
         { name: "Nutella", price: "149", description: "نوتيلا" },
@@ -223,107 +190,105 @@ const Menu = () => {
     },
   ]
 
+  const activeItems = menuCategories.find(cat => cat.id === activeCategory)?.items || []
+
   return (
-    <section id="menu" className="section-container bg-gray-50" ref={sectionRef}>
-      <motion.div
-        className="text-center mb-12"
-        variants={containerVariants}
-        initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
-      >
-        <motion.div className="hush-chip mx-auto mb-6" variants={itemVariants}>
-          Our Menu
+    <section className="min-h-screen bg-gradient-to-br from-green-50 via-emerald-50 to-green-100 py-16 px-4">
+      <div className="max-w-7xl mx-auto">
+        {/* Header */}
+        <motion.div 
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: -30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
+          <div className="inline-block bg-green-100 text-teal-800 px-4 py-2 rounded-full text-sm font-medium mb-4 border border-green-200">
+            Our Menu
+          </div>
+          <h1 className="text-4xl md:text-5xl font-bold text-teal-900 mb-4 font-serif">
+            Crafted with Love, Served with Care
+          </h1>
+          <p className="text-lg text-teal-700 max-w-2xl mx-auto leading-relaxed">
+            Discover our carefully curated selection of premium beverages and artisanal treats
+          </p>
         </motion.div>
-        <motion.h2 className="section-title text-gray-900 mb-4" variants={itemVariants}>
-          Crafted with Love, Served with Care
-        </motion.h2>
-        <motion.p className="section-subtitle mx-auto" variants={itemVariants}>
-          Discover our carefully curated selection of premium beverages and artisanal treats
-        </motion.p>
-      </motion.div>
 
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-        transition={{ duration: 0.6, delay: 0.4 }}
-      >
-        <Tabs defaultValue="coffee" className="w-full">
-          <TabsList className="flex flex-wrap justify-center gap-0 border-b border-gray-200 mb-20">
-            <TabsTrigger value="coffee" className="text-xs sm:text-sm">
-              Turkish Coffee 
-            </TabsTrigger>
-            <TabsTrigger value="esspreso" className="text-xs sm:text-">
-              Espresso
-            </TabsTrigger>
-            <TabsTrigger value="iced" className="text-xs sm:text-">
-              Iced Coffee
-            </TabsTrigger>
-            <TabsTrigger value="specialties" className="text-xs sm:text-">
-              Frappé 
-            </TabsTrigger>
-            <TabsTrigger value="matcha" className="text-xs sm:text-">
-              Matcha
-            </TabsTrigger>
-            <TabsTrigger value="noncoffee" className="text-xs sm:text-">
-              Non-Coffee
-            </TabsTrigger>
-            <TabsTrigger value="shakes" className="text-xs sm:text-">
-              Milkshakes
-            </TabsTrigger>
-            <TabsTrigger value="SMOOTHIES" className="text-xs :text-">
-              Smoothies
-            </TabsTrigger>
-            <TabsTrigger value="mojito" className="text-xs sm:text-">
-              Mojito 
-            </TabsTrigger>
-            <TabsTrigger value="desserts" className="text-xs sm:text-">
-              Desserts
-            </TabsTrigger>
-            <TabsTrigger value="pastries" className="text-xs sm:text-">
-              Croissants
-            </TabsTrigger>
-            <TabsTrigger value="CROFFLE" className="text-xs sm:text-">
-              Croffles
-            </TabsTrigger>
-          </TabsList>
-
-          {menuCategories.map((category) => (
-            <TabsContent key={category.id} value={category.id} className="mt-8">
-              <motion.div
-                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2"
-                variants={containerVariants}
-                initial="hidden"
-                animate="visible"
+        {/* Category Navigation */}
+        <motion.div 
+          className="mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
+          <div className="flex flex-wrap justify-center gap-2 mb-8">
+            {menuCategories.map((category) => (
+              <button
+                key={category.id}
+                onClick={() => setActiveCategory(category.id)}
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                  activeCategory === category.id
+                    ? 'bg-teal-700 text-white shadow-lg transform scale-105'
+                    : 'bg-white text-teal-800 hover:bg-green-100 border border-green-200 hover:border-emerald-300'
+                }`}
               >
-                {category.items.map((item, index) => (
-                  <motion.div
-                    key={index}
-                    variants={cardVariants}
-                    custom={index}
-                    whileHover={{
-                      y: -5,
-                      scale: 1.02,
-                      transition: { duration: 0.2 },
-                    }}
-                  >
-                    <Card className="hover:shadow-lg transition-all duration-300">
-                      <CardHeader className="pb-3">
-                        <div className="flex justify-between items-start">
-                          <CardTitle className="text-lg font-semibold text-gray-900">{item.name}</CardTitle>
-                          <span className="text-lg font-bold text-primary">{item.price}</span>
-                        </div>
-                      </CardHeader>
-                      <CardContent>
-                        <p className="text-gray-600 text-sm leading-relaxed">{item.description}</p>
-                      </CardContent>
-                    </Card>
-                  </motion.div>
-                ))}
+                {category.name}
+              </button>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Menu Items Grid */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeCategory}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.4 }}
+          >
+            {activeItems.map((item, index) => (
+              <motion.div
+                key={`${activeCategory}-${index}`}
+                className="group bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 border border-green-100 hover:border-emerald-200"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: index * 0.05 }}
+                whileHover={{ 
+                  y: -8, 
+                  scale: 1.02,
+                  transition: { duration: 0.2 }
+                }}
+              >
+                {/* Price Badge */}
+                <div className="flex justify-between items-start mb-4">
+                  <div className="flex-1">
+                    <h3 className="text-lg font-bold text-teal-900 group-hover:text-teal-700 transition-colors duration-300 leading-tight">
+                      {item.name}
+                    </h3>
+                  </div>
+                  <div className="bg-gradient-to-r from-teal-600 to-teal-700 text-white px-3 py-1 rounded-full text-sm font-bold shadow-md ml-3 flex-shrink-0">
+                    {item.price} EGP
+                  </div>
+                </div>
+
+                {/* Description */}
+                <p className="text-teal-600 text-sm leading-relaxed font-medium">
+                  {item.description}
+                </p>
+
+                {/* Hover Effect Accent */}
+                <div className="w-0 group-hover:w-full h-0.5 bg-gradient-to-r from-emerald-500 to-teal-600 transition-all duration-300 mt-4"></div>
               </motion.div>
-            </TabsContent>
-          ))}
-        </Tabs>
-      </motion.div>
+            ))}
+          </motion.div>
+        </AnimatePresence>
+
+        {/* Decorative Elements */}
+        <div className="absolute top-10 left-10 w-20 h-20 bg-emerald-200 rounded-full opacity-20 animate-pulse"></div>
+        <div className="absolute bottom-10 right-10 w-32 h-32 bg-green-200 rounded-full opacity-20 animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-4 w-16 h-16 bg-emerald-300 rounded-full opacity-10 animate-bounce"></div>
+      </div>
     </section>
   )
 }
