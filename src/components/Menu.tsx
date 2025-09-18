@@ -21,8 +21,8 @@ const Menu = () => {
       id: "espresso",
       name: "Espresso",
       items: [
-        { name: "Espresso", price: "52 / 63", description: "إسبريسو", image: "https://images.unsplash.com/photo-1510707577719-ae7c14805e76?w=300&h=200&fit=crop&crop=center" },
-        { name: "Macchiato", price: "57 / 69", description: "ماكياتو", image: "https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=300&h=200&fit=crop&crop=center" },
+        { name: "Espresso", price: "S: 52 / D: 63", description: "إسبريسو", image: "https://images.unsplash.com/photo-1510707577719-ae7c14805e76?w=300&h=200&fit=crop&crop=center" },
+        { name: "Macchiato", price: "S: 57 / D: 69", description: "ماكياتو", image: "https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=300&h=200&fit=crop&crop=center" },
         { name: "Cappuccino", price: "92", description: "كابتشينو", image: "https://images.unsplash.com/photo-1534778101976-62847782c213?w=300&h=200&fit=crop&crop=center" },
         { name: "Café Latte", price: "97", description: "كافيه لاتيه", image: "https://images.unsplash.com/photo-1570968915860-54d5c301fa9f?w=300&h=200&fit=crop&crop=center" },
         { name: "Café Latte Flavour", price: "109", description: "كافيه لاتيه بنكهة", image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop&crop=center" },
