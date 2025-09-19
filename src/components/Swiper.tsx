@@ -1,13 +1,13 @@
-
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { ChevronLeft, ChevronRight, Play, Pause } from "lucide-react"
 
 const Swiper = () => {
   const [currentSlide, setCurrentSlide] = useState(0)
   const [isPlaying, setIsPlaying] = useState(true)
+  const videoRefs = useRef([])
 
   const slides = [
     {
@@ -48,21 +48,41 @@ const Swiper = () => {
     setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length)
   }
 
-  // Auto-play functionality with timer reset on manual interaction
+  // Video playback control
+  useEffect(() => {
+    const currentVideo = videoRefs.current[currentSlide]
+    if (currentVideo) {
+      currentVideo.playbackRate = 1.5 // Increase playback speed by 50%
+      if (isPlaying) {
+        currentVideo.play().catch((error) => {
+          console.error("Video playback error:", error)
+          setIsPlaying(false)
+        })
+      } else {
+        currentVideo.pause()
+      }
+    }
+
+    // Pause other videos
+    videoRefs.current.forEach((video, index) => {
+      if (index !== currentSlide && video) {
+        video.pause()
+        video.currentTime = 0
+      }
+    })
+  }, [currentSlide, isPlaying])
+
+  // Auto-play functionality with shorter interval
   useEffect(() => {
     if (!isPlaying) return
 
-    const startInterval = () => {
-      return setInterval(nextSlide, 12000) // 12 seconds
-    }
-
-    const interval = startInterval()
+    const interval = setInterval(nextSlide, 8000) // Reduced to 8 seconds for faster cycling
 
     return () => clearInterval(interval)
-  }, [isPlaying, currentSlide]) // Add currentSlide as a dependency to reset timer on slide change
+  }, [isPlaying, currentSlide])
 
   const slideVariants = {
-    enter: (direction: number) => ({
+    enter: (direction) => ({
       x: direction > 0 ? 1000 : -1000,
       opacity: 0,
       scale: 0.9,
@@ -73,7 +93,7 @@ const Swiper = () => {
       opacity: 1,
       scale: 1,
     },
-    exit: (direction: number) => ({
+    exit: (direction) => ({
       zIndex: 0,
       x: direction < 0 ? 1000 : -1000,
       opacity: 0,
@@ -82,7 +102,7 @@ const Swiper = () => {
   }
 
   const swipeConfidenceThreshold = 10000
-  const swipePower = (offset: number, velocity: number) => {
+  const swipePower = (offset, velocity) => {
     return Math.abs(offset) * velocity
   }
 
@@ -126,7 +146,6 @@ const Swiper = () => {
               dragElastic={1}
               onDragEnd={(e, { offset, velocity }) => {
                 const swipe = swipePower(offset.x, velocity.x)
-
                 if (swipe < -swipeConfidenceThreshold) {
                   nextSlide()
                 } else if (swipe > swipeConfidenceThreshold) {
@@ -165,16 +184,17 @@ const Swiper = () => {
                 >
                   <div className="relative">
                     <video
+                      ref={(el) => (videoRefs.current[currentSlide] = el)}
                       src={slides[currentSlide].videoUrl}
                       autoPlay
                       muted
                       loop
                       playsInline
+                      onError={(e) => console.error("Video load error:", e)}
                       className="w-64 h-[456px] object-cover rounded-2xl shadow-xl"
                       style={{ aspectRatio: "9/16" }}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-2xl" />
-                    {/* Video play/pause control overlay */}
                     <motion.button
                       onClick={() => setIsPlaying(!isPlaying)}
                       className="absolute bottom-4 right-4 bg-white/90 hover:bg-white text-gray-800 p-2 rounded-full shadow-lg backdrop-blur-sm transition-all duration-300"
@@ -268,4 +288,3 @@ const Swiper = () => {
 }
 
 export default Swiper
-
